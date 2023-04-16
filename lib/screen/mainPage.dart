@@ -15,6 +15,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:overlay_support/overlay_support.dart';
 
+import '../class/padding.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -108,146 +110,151 @@ class _MainPageState extends State<MainPage> {
                       ),
                       child: ListView(
                         children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                "MİNİ KÜTÜPHANE UYGULAMASI",
-                                style: GoogleFonts.bebasNeue(
-                                    fontSize: 24, color: appColors.white),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              AnimatedBtn(
-                                  onPressed: () {
-                                    context.push('/secondPage');
-                                  },
-                                  child: Text(
-                                    "Kitap Ekle ",
-                                    style: GoogleFonts.bebasNeue(
-                                        fontSize: 18,
-                                        color: appColors.textColor),
-                                  )),
-                              AnimatedBtn(
-                                  onPressed: () {
-                                    context.push('/listBook');
-                                  },
-                                  child: Text(
-                                    "Kitaplar",
-                                    style: GoogleFonts.bebasNeue(
-                                        fontSize: 18,
-                                        color: appColors.textColor),
-                                  )),
-                              AnimatedBtn(
-                                  onPressed: () {
-                                    context.push('/oduncKitap');
-                                  },
-                                  child: Text(
-                                    "Ödünç Kitap Al",
-                                    style: GoogleFonts.bebasNeue(
-                                        fontSize: 18,
-                                        color: appColors.textColor),
-                                  )),
-                              AnimatedBtn(
-                                  onPressed: () {
-                                    context.push('/oduncAlan');
-                                  },
-                                  child: Text(
-                                    "Ödünç Alanlar",
-                                    style: GoogleFonts.bebasNeue(
-                                        fontSize: 18,
-                                        color: appColors.textColor),
-                                  )),
-                              AnimatedBtn(
-                                  onPressed: () {
-                                    context.push('/chartScreen');
-                                  },
-                                  child: Text(
-                                    "GRAFIK",
-                                    style: GoogleFonts.bebasNeue(
-                                        fontSize: 18,
-                                        color: appColors.textColor),
-                                  )),
-                              AnimatedBtn(
-                                onPressed: () async {
-                                  result =
-                                      await Connectivity().checkConnectivity();
-                                  hasInternet =
-                                      await InternetConnectionChecker()
-                                          .hasConnection;
-                                  final text =
-                                      hasInternet ? "Internet" : "No Internet";
-                                  if (result == ConnectivityResult.mobile) {
-                                    showSimpleNotification(
-                                        background: appColors.transparent,
-                                        snackDesign(
-                                            text1: "$text : Mobile Network",
-                                            text2: "",
-                                            colorSnack: appColors.snackGreen,
-                                            image: Image.asset(
-                                                "images/connection32.png"),
-                                            image2: Image.asset(
-                                                "images/connection32.png")));
-                                  } else if (result ==
-                                      ConnectivityResult.wifi) {
-                                    showSimpleNotification(
-                                        background: appColors.transparent,
-                                        snackDesign(
-                                            text1: "$text : Wifi Network",
-                                            text2: "",
-                                            colorSnack: appColors.snackGreen,
-                                            image: Image.asset(
-                                                "images/connection32.png"),
-                                            image2: Image.asset(
-                                                "images/connection32.png")));
-                                  } else if (result ==
-                                      ConnectivityResult.ethernet) {
-                                    showSimpleNotification(
-                                      background: appColors.transparent,
-                                      snackDesign(
-                                          text1: "$text :  Ethernet",
-                                          text2: "",
-                                          colorSnack: appColors.snackGreen,
-                                          image: Image.asset(
-                                              "images/connection32.png"),
-                                          image2:
-                                              Image.asset("images/signal.png")),
-                                    );
-                                  } else {
-                                    showSimpleNotification(
-                                      background: appColors.transparent,
-                                      snackDesign(
-                                          text1: "$text",
-                                          text2: "",
-                                          colorSnack: appColors.snackRed,
-                                          image: Image.asset(
-                                              "images/disconnect.png"),
-                                          image2: Image.asset(
-                                              "images/disconnect2.png")),
-                                    );
-                                  }
-                                },
-                                child: Text(
-                                  "Bağlantını Kontrol Et",
-                                  style: GoogleFonts.bebasNeue(
-                                      fontSize: 18, color: appColors.textColor),
+                          Padding(
+                            padding: MyPadding.all,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 20,
                                 ),
-                              ),
-                              AnimatedBtn(
-                                  onPressed: () {
-                                    exit(0);
+                                Text(
+                                  "MİNİ KÜTÜPHANE UYGULAMASI",
+                                  style: GoogleFonts.bebasNeue(
+                                      fontSize: 24, color: appColors.white),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                AnimatedBtn(
+                                    onPressed: () {
+                                      context.push('/secondPage');
+                                    },
+                                    child: Text(
+                                      "Kitap Ekle ",
+                                      style: GoogleFonts.bebasNeue(
+                                          fontSize: 18,
+                                          color: appColors.textColor),
+                                    )),
+                                AnimatedBtn(
+                                    onPressed: () {
+                                      context.push('/listBook');
+                                    },
+                                    child: Text(
+                                      "Kitaplar",
+                                      style: GoogleFonts.bebasNeue(
+                                          fontSize: 18,
+                                          color: appColors.textColor),
+                                    )),
+                                AnimatedBtn(
+                                    onPressed: () {
+                                      context.push('/oduncKitap');
+                                    },
+                                    child: Text(
+                                      "Ödünç Kitap Al",
+                                      style: GoogleFonts.bebasNeue(
+                                          fontSize: 18,
+                                          color: appColors.textColor),
+                                    )),
+                                AnimatedBtn(
+                                    onPressed: () {
+                                      context.push('/oduncAlan');
+                                    },
+                                    child: Text(
+                                      "Ödünç Alanlar",
+                                      style: GoogleFonts.bebasNeue(
+                                          fontSize: 18,
+                                          color: appColors.textColor),
+                                    )),
+                                AnimatedBtn(
+                                    onPressed: () {
+                                      context.push('/chartScreen');
+                                    },
+                                    child: Text(
+                                      "GRAFIK",
+                                      style: GoogleFonts.bebasNeue(
+                                          fontSize: 18,
+                                          color: appColors.textColor),
+                                    )),
+                                AnimatedBtn(
+                                  onPressed: () async {
+                                    result = await Connectivity()
+                                        .checkConnectivity();
+                                    hasInternet =
+                                        await InternetConnectionChecker()
+                                            .hasConnection;
+                                    final text = hasInternet
+                                        ? "Internet"
+                                        : "No Internet";
+                                    if (result == ConnectivityResult.mobile) {
+                                      showSimpleNotification(
+                                          background: appColors.transparent,
+                                          snackDesign(
+                                              text1: "$text : Mobile Network",
+                                              text2: "",
+                                              colorSnack: appColors.snackGreen,
+                                              image: Image.asset(
+                                                  "images/connection32.png"),
+                                              image2: Image.asset(
+                                                  "images/connection32.png")));
+                                    } else if (result ==
+                                        ConnectivityResult.wifi) {
+                                      showSimpleNotification(
+                                          background: appColors.transparent,
+                                          snackDesign(
+                                              text1: "$text : Wifi Network",
+                                              text2: "",
+                                              colorSnack: appColors.snackGreen,
+                                              image: Image.asset(
+                                                  "images/connection32.png"),
+                                              image2: Image.asset(
+                                                  "images/connection32.png")));
+                                    } else if (result ==
+                                        ConnectivityResult.ethernet) {
+                                      showSimpleNotification(
+                                        background: appColors.transparent,
+                                        snackDesign(
+                                            text1: "$text :  Ethernet",
+                                            text2: "",
+                                            colorSnack: appColors.snackGreen,
+                                            image: Image.asset(
+                                                "images/connection32.png"),
+                                            image2: Image.asset(
+                                                "images/signal.png")),
+                                      );
+                                    } else {
+                                      showSimpleNotification(
+                                        background: appColors.transparent,
+                                        snackDesign(
+                                            text1: "$text",
+                                            text2: "",
+                                            colorSnack: appColors.snackRed,
+                                            image: Image.asset(
+                                                "images/disconnect.png"),
+                                            image2: Image.asset(
+                                                "images/disconnect2.png")),
+                                      );
+                                    }
                                   },
                                   child: Text(
-                                    "Çıkış",
+                                    "Bağlantını Kontrol Et",
                                     style: GoogleFonts.bebasNeue(
                                         fontSize: 18,
                                         color: appColors.textColor),
-                                  )),
-                            ],
+                                  ),
+                                ),
+                                AnimatedBtn(
+                                    onPressed: () {
+                                      exit(0);
+                                    },
+                                    child: Text(
+                                      "Çıkış",
+                                      style: GoogleFonts.bebasNeue(
+                                          fontSize: 18,
+                                          color: appColors.textColor),
+                                    )),
+                              ],
+                            ),
                           ),
                         ],
                       ),
